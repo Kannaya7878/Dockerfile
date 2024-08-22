@@ -21,7 +21,7 @@ pipeline {
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('sai78/Kannaya.', "./docker")
+                 def customImage = docker.build('sai78/Kannaya:latest', "./docker")
                  docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
